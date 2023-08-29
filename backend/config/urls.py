@@ -19,17 +19,21 @@ from django.urls import path, include
 from rest_framework_swagger.views import get_swagger_view
 from rest_framework.routers import DefaultRouter
 from posts.views import PostViewSet
+from videos.views import YouTubeVideoAPIView
 from django.conf import settings
 from django.conf.urls.static import static
+from files.views import FilesAPIView
 
 router = DefaultRouter()
 router.register(r'posts', PostViewSet, basename="shops")
+router.register(r'videos', YouTubeVideoAPIView, basename="videos")
+router.register(r'files', FilesAPIView, basename="files")
+
 
 schema_view = get_swagger_view(title="Two DEMO API")
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('swagger/', schema_view),
-    path('videos/', include("videos.urls"))
 ]
 
 urlpatterns += router.urls
