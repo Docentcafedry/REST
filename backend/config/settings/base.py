@@ -59,7 +59,8 @@ LOCAL_APPS = [
     'users',
     'posts',
     'videos',
-    'files'
+    'files',
+    'home'
 
 ]
 
@@ -173,5 +174,3 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=30)
 }
 
-
-print(timedelta(days=13))

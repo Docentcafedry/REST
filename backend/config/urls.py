@@ -23,6 +23,7 @@ from videos.views import YouTubeVideoAPIView
 from django.conf import settings
 from django.conf.urls.static import static
 from files.views import FilesAPIView
+from home.views import HomeView
 
 router = DefaultRouter()
 router.register(r'posts', PostViewSet, basename="shops")
@@ -34,6 +35,7 @@ schema_view = get_swagger_view(title="Two DEMO API")
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('swagger/', schema_view),
+    path('home', HomeView.as_view(), name='home')
 ]
 
 urlpatterns += router.urls
